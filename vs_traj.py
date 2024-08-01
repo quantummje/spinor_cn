@@ -1,3 +1,8 @@
+###############################################
+######### Vortex tracking algorithm ###########
+############ Matthew Edmonds 2024 #############
+###############################################
+
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -243,12 +248,6 @@ t_out = rmv_zs(dat_in=dat_tim)
 #
 ax.plot(t_out[:,1,0],t_out[:,0,0],'.',color='tab:blue',label=r'$(x_{+},y_{+}) |\psi_{+1}|^2$')
 ax.plot(t_out[:,1,1],t_out[:,0,1],'o',color='tab:blue',label=r'$(x_{-},y_{-}) |\psi_{+1}|^2$',markerfacecolor='none',markersize=4)
-
-#ax.plot(dat_tim[:,1,0][::2],dat_tim[:,0,0][::2],'.',color='tab:blue',label=r'$(x_{+},y_{+}) |\psi_{+1}|^2$')
-#ax.plot(dat_tim[:,1,1][::2],dat_tim[:,0,1][::2],'o',color='tab:blue',label=r'$(x_{-},y_{-}) |\psi_{+1}|^2$',markerfacecolor='none',markersize=4)
-#
-#ax.plot(dat_tim[:,1,0][::4],dat_tim[:,0,0][::4],'.',color='tab:red',label=r'$(x_{-},y_{-}) |\psi_{-1}|^2$')
-#ax.plot(dat_tim[:,1,1][::4],dat_tim[:,0,1][::4],'o',color='tab:red',label=r'$(x_{+},y_{+}) |\psi_{-1}|^2$',markerfacecolor='none')
 #
 ax.plot(R0*np.cos(np.linspace(0,2*np.pi,100)),R0*np.sin(np.linspace(0,2*np.pi,100)),'-',color='gray',linewidth=1)
 ax.set_xlabel(r'$x$',fontsize=14)
@@ -258,52 +257,5 @@ ax.axis('equal')
 #
 #ax[1].plot(,'+',color='tab:blue')
 #
-
 plt.tight_layout()
 f1.show()
-
-#f1 = plt.figure(figsize=(5,4))
-#plt.plot(ts_1[::4],v_sep_p1[0,:][::4],'.',color='black',label=r'${\rm PCV\ sep.} |\psi_{+1}|^2 N\sim 25$',markersize='8')
-#plt.plot(ts_1,s1_p,label=r'cubic interpolation $(N\sim 25)$')
-#plt.plot(ts_2[::8],v_sep_m2[0,:][::8],'+',color='black',label=r'${\rm PCV\ sep.} |\psi_{+1}|^2 N\sim 6$',markersize='8')
-#plt.plot(ts_2,s2_m,label=r'cubic interpolation $(N\sim 4)$')
-#plt.xlabel(r'$t/t_0$',fontsize=14)
-#plt.ylabel(r'$x/\xi_0$',fontsize=14)
-#plt.xlim([0.,1.05*np.max(ts_1)])
-#plt.ylim([0.,1.05*np.max(v_sep_p1)])
-#plt.rc('xtick', labelsize=14)
-#plt.rc('ytick', labelsize=14)
-#plt.legend(fontsize=11)
-#plt.grid()
-#plt.tight_layout()
-#f1.show()
-
-#f2 = plt.figure(figsize=(6,3))
-#
-#plt.plot(ts_q_0,v_sep_q_0,'.',color='black')
-#plt.plot(ts_q_0,sp1_q_0,label=r'$q/q_0=0$')
-#
-#plt.plot(ts_q_0p125,v_sep_q_0p125,'.',color='black')
-#plt.plot(ts_q_0p125,sp1_q_0p125,label=r'$q/q_0=0.125$')
-#
-#plt.plot(ts_q_0p25,v_sep_q_0p25,'.',color='black')
-#plt.plot(ts_q_0p25,sp1_q_0p25,label=r'$q/q_0=0.25$')
-#
-#plt.plot(ts_q_0p5,v_sep_q_0p5,'.',color='black')
-#plt.plot(ts_q_0p5,sp1_q_0p5,label=r'$q/q_0=0.5$')
-#
-#plt.plot(ts_q_0p75,v_sep_q_0p75,'.',color='black')
-#plt.plot(ts_q_0p75,sp1_q_0p75,label=r'$q/q_0=0.75$')
-#
-#plt.plot(ts_q_1p0,v_sep_q_1p0,'.',color='black')
-#plt.plot(ts_q_1p0,sp1_q_1p0,label=r'$q/q_0=1.0$')
-#
-#plt.xlabel(r'$t$',fontsize=14)
-#plt.ylabel(r'$\Delta r=r_{+}-r_{-}$',fontsize=14)
-#plt.tick_params(axis='both', which='major', labelsize=14)
-#plt.xlim([0.,np.max(ts_q_0)])
-#plt.ylim([0.,8.25])
-#
-#plt.legend(frameon=False,ncol=2,labelspacing=0,columnspacing=0.5)
-#plt.tight_layout()
-#f2.show()
