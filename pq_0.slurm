@@ -1,6 +1,5 @@
 #!/bin/bash -l
 #SBATCH --job-name=pq_0
-#SBATCH --account=a_davis
 #SBATCH --partition=general
 #SBATCH --time=14-00:00
 #SBATCH --ntasks=1
